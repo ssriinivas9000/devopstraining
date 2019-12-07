@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"bank-customer",
+      "labels":{
+         "app":"bank-customer"
+      }
+   },
+   "spec":{
+      "replicas":3,
+      "selector":{
+         "app":"bank-customer"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"bank-customer"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"bank-customer",
+                  "image":"990456062402.dkr.ecr.us-east-1.amazonaws.com/bank-customer-service:latest",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":3333
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}

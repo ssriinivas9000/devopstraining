@@ -1,0 +1,22 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"bank-customer",
+      "labels":{
+         "app":"bank-customer"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":3333,
+           "targetPort":"http-server"
+         }
+      ],
+      "selector":{
+         "app":"bank-customer"
+      },
+      "type": "LoadBalancer"
+   }
+}
